@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="FST 35 Test Suite">
+    <test name="Activity 5 Test ">
+        <groups>
+            <run>
+               <include name="HeaderTests"></include>
+                <include name="ButtonTests"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="Activities.Activity1" />
+            <class name="Activities.Activity2" />
+            <class name="Activities.Activity3" />
+            <class name="Activities.Activity4" />
+            <class name="Activities.Activity5" />
+
+        </classes>
+    </test>
+</suite>
