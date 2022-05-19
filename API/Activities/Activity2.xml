@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9a0ed06b-9327-434a-8d5b-c72f75dcda0f" created="3.30.0" activeEnvironment="Default environment" name="REST Project 1" updated="3.30.0 2022-03-16T13:04:41Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="4ddd90b7-d66a-490a-bdb0-a6abf3041a66" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://petstore.swagger.io" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8088/</con:endpoint>
+      <con:endpoint>https://petstore.swagger.io</con:endpoint>
+    </con:endpoints>
+    <con:resource name="FindByStatus" path="/v2/pet/findByStatus" id="26f6f35f-440b-4590-bba2-e188372461db">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="FindByStatus" id="9fefadb5-5315-4b93-806b-9f8643095050" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>status</con:name>
+            <con:value>sold</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>sold</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+        </con:representation>
+        <con:request name="StatusSold" id="1bbf7580-7c7a-4f1c-86f1-9235d6818b9a" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://petstore.swagger.io</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://petstore.swagger.io/v2/pet/findByStatus</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="status" value="sold"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>status</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="pet" path="/v2/pet" id="f41bf691-c464-4502-842d-a26a40009565">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Method 1" id="4f70535b-96e6-4504-b24f-3f932551eb59" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:pet="https://petstore.swagger.io/v2/pet">pet:Response</con:element>
+        </con:representation>
+        <con:request name="CreatePet" id="6e9d78d8-b92e-4145-9fdc-09bee2a7f188" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://petstore.swagger.io</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="83297bfb-11d1-4d23-9417-44afc5942571" name="https://petstore.swagger.io Test Suite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="91f6bfda-25b6-422d-85f3-9ae73e2e2ae8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="https://petstore.swagger.io Test Case 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="StatusAlive" id="0da3f72a-ac0d-46b1-b4ff-283fa7608c7b">
+        <con:settings/>
+        <con:config service="https://petstore.swagger.io" resourcePath="/v2/pet/findByStatus" methodName="FindByStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="StatusAlive" id="1bbf7580-7c7a-4f1c-86f1-9235d6818b9a" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://petstore.swagger.io</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://petstore.swagger.io/v2/pet/findByStatus</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="71fd9534-11e3-4de7-a711-44ffbb2e2e4f" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="status" value="alive"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>status</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="CreatePet" id="159200dd-486a-4d06-a56a-d184035fdc93">
+        <con:settings/>
+        <con:config service="https://petstore.swagger.io" resourcePath="/v2/pet" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="CreatePet" id="6e9d78d8-b92e-4145-9fdc-09bee2a7f188" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://petstore.swagger.io</con:endpoint>
+            <con:request>{
+  "id": 459,
+  "name": "maggie",
+   "status": "alive"
+}</con:request>
+            <con:originalUri>https://petstore.swagger.io/v2/pet</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="a81ce992-b469-4003-b279-403e18310f46" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="properties" name="Properties" id="d67a7bdf-115b-454e-ac8b-9874e721195c">
+        <con:settings/>
+        <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:properties/>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="StatusSold" id="0dc28b29-3843-444a-b6a0-74ee079b8102">
+        <con:settings/>
+        <con:config service="https://petstore.swagger.io" resourcePath="/v2/pet/findByStatus" methodName="FindByStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="StatusSold" id="1bbf7580-7c7a-4f1c-86f1-9235d6818b9a" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://petstore.swagger.io/v2/pet/findByStatus</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="308941d1-52ba-409d-93f2-2a6e73006a80" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="b336ab21-443b-4ee2-96a3-8106c7cc78b5" name="JSONPath Match">
+              <con:configuration>
+                <path>$[0].['id']</path>
+                <content>7574746</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="c4205d4c-40d0-4278-a313-9e0d80b2fca7" name="JSONPath Match 2">
+              <con:configuration>
+                <path>$[0].['category'].['id']</path>
+                <content>1</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="status" value="sold"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>status</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:restMockService id="dbfdfeec-479b-465c-b476-e69fe0121d2a" port="8088" path="/" host="localhost" name="https://petstore.swagger.io Virtual Service">
+    <con:settings/>
+    <con:properties/>
+    <con:constraints>
+      <con:congestion>0</con:congestion>
+      <con:inputBandwidth>-1</con:inputBandwidth>
+      <con:outputBandwidth>-1</con:outputBandwidth>
+      <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+      <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+      <con:virtError>
+        <con:start>0</con:start>
+        <con:endless>true</con:endless>
+      </con:virtError>
+    </con:constraints>
+    <con:headerValidator type="NONE"/>
+    <con:restMockAction name="/v2/pet/findByStatus" method="GET" resourcePath="/v2/pet/findByStatus" id="7c6b2de6-5b1b-4ee8-b309-dc298aa4ed52">
+      <con:settings/>
+      <con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:dispatchStyle>RANDOM</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:parameterDispatcherRuleContainer/>
+      <con:routeScript/>
+      <con:response name="Response 1" id="e2cdfbf9-b2da-4d7a-9a47-6adf06a2e2a9" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
+        <con:settings/>
+        <con:responseContent>[
+   {
+      "id" : 5565,
+      "category" : {
+         "id" : 1366825701,
+         "name" : "automation"
+      },
+      "name" : "hello kity",
+      "photoUrls" : [
+         "foo.bar.com/1",
+         "foo.bar.com/2"
+      ],
+      "tags" : [
+         {
+            "id" : 332,
+            "name" : "tagss"
+         }
+      ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019169,
+      "name" : "aaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019172,
+      "name" : "bbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019175,
+      "name" : "bbbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019177,
+      "name" : "eee",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019250,
+      "category" : {
+         "id" : 0,
+         "name" : "dog"
+      },
+      "name" : "Gone",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019252,
+      "name" : "yoyo",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019253,
+      "name" : "yoyo",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019288,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019296,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019297,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019309,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019399,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019402,
+      "name" : "bbbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019403,
+      "name" : "dddd",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019404,
+      "name" : "dddd",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019421,
+      "name" : "eee",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 7574746,
+      "category" : {
+         "id" : 1,
+         "name" : "Cat"
+      },
+      "name" : "Hardy",
+      "photoUrls" : [
+         "https://i.pinimg.com/originals/5c/2c/44/5c2c44f16da1caf134c00bc4f9c72ea0.jpg"
+      ],
+      "tags" : [
+         {
+            "id" : 7805,
+            "name" : "Mainecoon"
+         }
+      ],
+      "status" : "sold"
+   }
+]</con:responseContent>
+      </con:response>
+      <con:response name="Response 2" id="182807bd-0673-4484-a33e-4098d17c4788" httpResponseStatus="200" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" mediaType="application/json" dataSource="">
+        <con:settings/>
+        <con:responseContent>[
+   {
+      "id" : 5664,
+      "category" : {
+         "id" : 1366825701,
+         "name" : "automation"
+      },
+      "name" : "hello kity",
+      "photoUrls" : [
+         "foo.bar.com/1",
+         "foo.bar.com/2"
+      ],
+      "tags" : [
+         {
+            "id" : 332,
+            "name" : "tagss"
+         }
+      ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019169,
+      "name" : "aaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019172,
+      "name" : "bbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019175,
+      "name" : "bbbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019177,
+      "name" : "eee",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019250,
+      "category" : {
+         "id" : 0,
+         "name" : "dog"
+      },
+      "name" : "Gone",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019252,
+      "name" : "yoyo",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019253,
+      "name" : "yoyo",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019288,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019296,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019297,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019309,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019399,
+      "name" : "aaaa",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019402,
+      "name" : "bbbb",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019403,
+      "name" : "dddd",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019404,
+      "name" : "dddd",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 9223372016900019421,
+      "name" : "eee",
+      "photoUrls" : [ ],
+      "tags" : [ ],
+      "status" : "sold"
+   },
+   {
+      "id" : 7574746,
+      "category" : {
+         "id" : 1,
+         "name" : "Cat"
+      },
+      "name" : "Hardy",
+      "photoUrls" : [
+         "https://i.pinimg.com/originals/5c/2c/44/5c2c44f16da1caf134c00bc4f9c72ea0.jpg"
+      ],
+      "tags" : [
+         {
+            "id" : 7805,
+            "name" : "Mainecoon"
+         }
+      ],
+      "status" : "sold"
+   }
+]</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+  </con:restMockService>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
